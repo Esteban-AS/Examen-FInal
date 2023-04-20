@@ -130,4 +130,14 @@ const obtenerDatosPorCedula = async (cedula) => {
   }
 };
 
-export {Usuario, Estudio, ExpLaboral,agregarUsuario, agregarEstudio, agregarExperiencia, mostrarUsuariosYEstudios, obtenerDatosPorCedula}
+const buscarPorCedula = async (cedula) => {
+  try {
+    const usuario = await Usuario.findOne({ cedula });
+    return usuario;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
+export {Usuario, Estudio, ExpLaboral,agregarUsuario, agregarEstudio, agregarExperiencia, mostrarUsuariosYEstudios, buscarPorCedula, }

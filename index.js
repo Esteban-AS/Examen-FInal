@@ -1,5 +1,5 @@
 import express from 'express'
-import {Usuario, Estudio, ExpLaboral,agregarUsuario, agregarEstudio, agregarExperiencia, mostrarUsuariosYEstudios, obtenerDatosPorCedula} from './mongo_config/mongo_config.js'
+import {Usuario, Estudio, ExpLaboral,agregarUsuario, agregarEstudio, agregarExperiencia, mostrarUsuariosYEstudios, buscarPorCedula} from './mongo_config/mongo_config.js'
 
 const app = express()
 
@@ -39,9 +39,20 @@ app.post('/experiencia', (req, res) =>{
 
 app.post('/buscar', async (req, res) => {
     const cedula = req.body.cedula;
-    const resultados = await obtenerDatosPorCedula(cedula);
-    res.render('busqueda', { resultados });
-});
-  
+
+    try {
+      const usuariosEncontrados = await buscarPorCedula(cedula);
+      if (usuariosEncontrados && usuariosEncontrados.length > 0) {
+        res.render('busqueda', { usuarios: usuariosEncontrados });
+      } else {
+        res.status(404).json({ mensaje: 'Usuario no encontrado' });
+      }
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ mensaje: 'Error en el servidor' });
+    }
+  });
+
+
 
 

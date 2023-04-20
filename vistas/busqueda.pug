@@ -4,13 +4,20 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Document
-    body 
-    h1 Información del usuario
-    p
-        | Nombre: #{resultados.usuario.nombre} <br>
-        | Apellidos: #{resultados.usuario.apellidos} <br>
-        | Correo electrónico: #{resultados.usuario.email} <br>
-        | Teléfono: #{resultados.usuario.telefono} <br>
-        | Ciudad: #{resultados.usuario.ciudad} <br>
-        | Fecha de nacimiento: #{resultados.usuario.fecha_nacimiento} <br>
+        title Resultados de búsqueda
+    body
+        h1 Resultados de búsqueda
+        if usuarios.length > 0
+            ul
+                each usuario in usuarios
+                    li
+                        h2 Cédula: #{usuario.cedula}
+                        p Nombre: #{usuario.nombre} #{usuario.apellidos}
+                        p Email: #{usuario.email}
+                        p Fecha de nacimiento: #{usuario.fecha_nacimiento}
+                        p Teléfono: #{usuario.telefono}
+                        p Ciudad: #{usuario.ciudad}
+        else
+            p No se encontraron resultados.
+
+
