@@ -1,0 +1,67 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Registro de Datos
+    body 
+        h1 Ingrese su Blog Personal
+        a(href="/") Volver: Blog Personal
+        
+        // Formulario de ingreso de datos para la colección de usuarios
+        p Seccion 1: Datos Personales
+        form(action='/usuarios', method='POST') 
+            input(type='text', name='cedula', placeholder='Cédula', required)
+            
+            input(type='text', name='nombre', placeholder='Nombre', required)
+
+            input(type='text', name='apellidos', placeholder='Apellidos', required)
+
+            input(type='email', name='email', placeholder='Correo electrónico', required)
+
+            input(type='date', name='fecha_nacimiento', placeholder='Fecha de nacimiento', required)
+
+            input(type='text', name='telefono', placeholder='Número de teléfono', required)
+
+            input(type='text', name='ciudad', placeholder='Lugar de residencia', required)
+
+            input(type='submit' value='Agregar Usuario')
+        
+        // Formulario de ingreso de datos para la colección de estudios
+        p Seccion 2: Estudios realizados
+        form(action='/estudios', method='POST')
+            input(type='text', name='cedEstudio', placeholder='Cédula', required)
+
+            input(type='text', name='titulo', placeholder='Título del estudio', required)
+
+            input(type='text', name='institucion', placeholder='Institución educativa', required)
+
+            input(type='date', name='fecha_inicio', placeholder='Fecha de inicio', required)
+
+            input(type='date', name='fecha_fin', placeholder='Fecha de finalización', required)
+
+            input(type='text', name='descripcion', placeholder='Descripción de la carrera', required)
+
+            input(type='text', name='descriProyecto', placeholder='Proyectos realizados')
+
+            input(type='text', name='tecnologias', placeholder='Tecnologías utilizadas')
+
+            input(type='submit' value='Agregar Estudios')
+
+        // Formulario de ingreso de datos para la colección de experiencia laboral
+        p Seccion 3: Experiencia Profesional
+        form(action='/experiencia', method='POST')
+            input(type='text', name='cedExperiencia', placeholder='Cédula', required)
+
+            input(type='text', name='empresa', placeholder='Nombre de la empresa', required)
+
+            input(type='text', name='puesto', placeholder='Puesto desempeñado', required)
+
+            input(type='date', name='fecha_inicioExp', placeholder='Fecha de inicio', required)
+
+            input(type='date', name='fecha_finExp', placeholder='Fecha de finalización')
+
+            input(type='text', name='descriPuesto', placeholder='Descripción del puesto que desempeño', required)
+
+            input(type='submit' value='Agregar Experiencia')

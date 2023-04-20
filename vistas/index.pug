@@ -1,0 +1,37 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title El Blog
+    body 
+        h1 Bienvenido a El Blog
+        a(href="/registroDatos") Registrar su Blog Personal
+        p Datos Resumen de los usuarios
+        table
+            thead
+                tr
+                    th Cédula
+                    th Nombre
+                    th Apellidos
+                    th Teléfono
+                    th Email
+                    th Estudios
+            tbody
+                each usuario in usuarios
+                    tr
+                        td= usuario.cedula
+                        td= usuario.nombre
+                        td= usuario.apellidos
+                        td= usuario.telefono
+                        td= usuario.email
+                        td= usuario.estudios
+        
+        form(action='/buscar', method='POST')
+            input(type='text', name='cedulaBuscar', placeholder='Cédula a buscar', required)
+            
+            input(type='submit' value='Buscar')
+
+        
+            

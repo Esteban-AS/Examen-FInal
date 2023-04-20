@@ -1,0 +1,16 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+    body 
+    h1 Información del usuario
+    p
+        | Nombre: #{resultados.usuario.nombre} <br>
+        | Apellidos: #{resultados.usuario.apellidos} <br>
+        | Correo electrónico: #{resultados.usuario.email} <br>
+        | Teléfono: #{resultados.usuario.telefono} <br>
+        | Ciudad: #{resultados.usuario.ciudad} <br>
+        | Fecha de nacimiento: #{resultados.usuario.fecha_nacimiento} <br>
